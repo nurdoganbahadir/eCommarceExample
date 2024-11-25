@@ -1,11 +1,10 @@
-import Navbar from "@/components/Navbar/page";
+import Products from "@/components/Products/page";
 import "./globals.css";
 
 export default function Home() {
-  return (      
-      <div>
-        <Navbar />
-      </div>
-
+  return (
+    <div>
+      <Products />
+    </div>
   );
 }
