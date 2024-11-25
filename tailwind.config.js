@@ -8,9 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      colors: {},
+      fontFamily: {
+        title: ["Bungee Spice", "sans-serif"],
+        custom: ["Poppins", "Arial", "sans-serif"],
       },
     },
   },
