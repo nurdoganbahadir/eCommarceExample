@@ -53,11 +53,11 @@ function ProductList() {
       <div className="product-list flex flex-wrap">
         {products.map((product) => (
           <CardComponent
-            key={product.id} // Ürün id'sine göre her bir kartın key'ini belirliyoruz
-            title={product.name} // Kart başlığını ürün ismiyle dolduruyoruz
-            description={product.description} // Kart açıklamasını ürün açıklamasıyla dolduruyoruz
-            imageUrl={product.imageUrl} // Kartın resmini ürün resminin URL'siyle dolduruyoruz
-            onButtonClick={() => console.log(`Product ${product.id} clicked!`)} // Buton tıklaması işlemi
+            key={product.id}
+            title={product.name}
+            description={product.description} 
+            imageUrl={product.imageUrl} 
+            onButtonClick={() => console.log(`Product ${product.id} clicked!`)}
           />
         ))}
       </div>
