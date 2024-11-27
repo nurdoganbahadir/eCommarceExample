@@ -49,15 +49,15 @@ function ProductList() {
   }, [loading, hasMore]);
 
   return (
-    <div className="container m-auto">
+    <div className="container max-w-7xl m-auto">
       <div className="flex justify-center flex-wrap">
         {products.map((product) => (
           <CardComponent
             key={product.id}
+            brand={product.brand}
             title={product.title}
-            description={product.description}
             thumbnail={product.thumbnail}
-            onButtonClick={() => console.log(`Product ${product.id} clicked!`)}
+            price={product.price}
           />
         ))}
       </div>
