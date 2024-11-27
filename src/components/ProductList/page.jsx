@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CardComponent from "../CardComponent";
 
-const LIMIT = 10; // Her istekte çekilecek ürün sayısı
+const LIMIT = 12; // Her istekte çekilecek ürün sayısı
 
 function ProductList() {
   const [products, setProducts] = useState([]); // Ürün listesi
@@ -16,11 +16,11 @@ function ProductList() {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://dummyjson.com/recipes?limit=${LIMIT}&skip=${skip}`
+        `https://dummyjson.com/products?limit=${LIMIT}&skip=${skip}`
       );
-      console.log(data.recipes);
-      setProducts((prev) => [...prev, ...data.recipes]); // Yeni ürünleri ekle
-      if (data.recipes.length < LIMIT) setHasMore(false); // Çekilen ürün sayısı limitten azsa, daha fazla ürün yok
+      console.log(data.products);
+      setProducts((prev) => [...prev, ...data.products]); // Yeni ürünleri ekle
+      if (data.products.length < LIMIT) setHasMore(false); // Çekilen ürün sayısı limitten azsa, daha fazla ürün yok
     } catch (error) {
       console.error("Error fetching products:", error);
     } finally {
@@ -49,14 +49,14 @@ function ProductList() {
   }, [loading, hasMore]);
 
   return (
-    <div>
-      <div className="product-list flex flex-wrap">
+    <div className="container m-auto">
+      <div className="flex justify-center flex-wrap">
         {products.map((product) => (
           <CardComponent
             key={product.id}
-            title={product.name}
-            description={product.description} 
-            imageUrl={product.imageUrl} 
+            title={product.title}
+            description={product.description}
+            thumbnail={product.thumbnail}
             onButtonClick={() => console.log(`Product ${product.id} clicked!`)}
           />
         ))}
