@@ -21,7 +21,7 @@ module.exports = {
         lastColor: "#FFB200",
       },
       fontFamily: {
-        title: ["Bungee Spice", "sans-serif"],
+        title: ["Inter", "sans-serif"],
         custom: ["Poppins", "Arial", "sans-serif"],
       },
     },

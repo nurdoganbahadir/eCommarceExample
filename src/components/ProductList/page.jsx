@@ -58,6 +58,7 @@ function ProductList() {
             title={product.title}
             thumbnail={product.thumbnail}
             price={product.price}
+            rating={product.rating}
           />
         ))}
       </div>
