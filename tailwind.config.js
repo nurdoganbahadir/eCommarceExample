@@ -19,6 +19,7 @@ module.exports = {
         secondary: "#D91656",
         btnColor: "#EB5B00",
         lastColor: "#FFB200",
+        priceColor: "#6EC207",
       },
       fontFamily: {
         title: ["Inter", "sans-serif"],

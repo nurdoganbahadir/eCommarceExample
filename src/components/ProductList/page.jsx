@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import CardComponent from "../CardComponent";
+import CardComponent from "../Card/Card";
 
 const LIMIT = 12; // Her istekte çekilecek ürün sayısı
 
@@ -59,6 +59,8 @@ function ProductList() {
             thumbnail={product.thumbnail}
             price={product.price}
             rating={product.rating}
+            reviews={product.reviews}
+            discountPercentage={product.discountPercentage}
           />
         ))}
       </div>

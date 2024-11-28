@@ -1,13 +1,13 @@
 import React from "react";
 
-function CardDetail({ rating }) {
+function CardRating({ rating }) {
   return (
-    <div class="flex items-center">
+    <div className="flex items-center my-2">
       <svg
         className={
           rating > 1
-            ? "w-3 h-3 text-yellow-300 ms-1"
-            : "w-3 h-3 text-gray-300 ms-1"
+            ? "w-4 h-4 text-yellow-300 ms-0"
+            : "w-4 h-4 text-gray-300 ms-0"
         }
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
@@ -19,8 +19,8 @@ function CardDetail({ rating }) {
       <svg
         className={
           rating > 2
-            ? "w-3 h-3 text-yellow-300 ms-1"
-            : "w-3 h-3 text-gray-300 ms-1"
+            ? "w-4 h-4 text-yellow-300 ms-0"
+            : "w-4 h-4 text-gray-300 ms-0"
         }
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +32,8 @@ function CardDetail({ rating }) {
       <svg
         className={
           rating > 3
-            ? "w-3 h-3 text-yellow-300 ms-1"
-            : "w-3 h-3 text-gray-300 ms-1"
+            ? "w-4 h-4 text-yellow-300 ms-0"
+            : "w-4 h-4 text-gray-300 ms-0"
         }
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
@@ -45,8 +45,8 @@ function CardDetail({ rating }) {
       <svg
         className={
           rating > 4
-            ? "w-3 h-3 text-yellow-300 ms-1"
-            : "w-3 h-3 text-gray-300 ms-1"
+            ? "w-4 h-4 text-yellow-300 ms-0"
+            : "w-4 h-4 text-gray-300 ms-0"
         }
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
@@ -58,8 +58,8 @@ function CardDetail({ rating }) {
       <svg
         className={
           rating === 5
-            ? "w-3 h-3 text-yellow-300 ms-1"
-            : "w-3 h-3 text-gray-300 ms-1"
+            ? "w-4 h-4 text-yellow-300 ms-0"
+            : "w-4 h-4 text-gray-300 ms-0"
         }
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
@@ -72,4 +72,4 @@ function CardDetail({ rating }) {
   );
 }
 
-export default CardDetail;
+export default CardRating;
