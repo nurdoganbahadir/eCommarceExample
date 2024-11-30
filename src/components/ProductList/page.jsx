@@ -49,7 +49,7 @@ function ProductList() {
   }, [loading, hasMore]);
 
   return (
-    <div className="container max-w-7xl m-auto z-0">
+    <div className="container max-w-7xl m-auto mt-5 z-0">
       <div className="flex justify-center flex-wrap">
         {products.map((product) => (
           <CardComponent
