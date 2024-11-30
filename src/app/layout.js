@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar/page";
 import "./globals.css";
-
+import CategoriesBar from "@/components/Categories/CategoriesBar";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,8 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
       <body>
-          <Navbar />
-          {children}
+        <Navbar />
+        <CategoriesBar />
+        {children}
       </body>
     </html>
   );
