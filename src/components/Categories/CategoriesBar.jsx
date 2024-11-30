@@ -1,3 +1,4 @@
+"use client";
 const categories = {
   men: [
     { name: "Men Shirts", value: "mens-shirts" },
@@ -39,6 +40,7 @@ const categories = {
 };
 
 function CategoriesBar() {
+  
   return (
     <div className="w-full bg-slate-300">
       <div className="container max-w-7xl mx-auto flex justify-center">
@@ -49,13 +51,12 @@ function CategoriesBar() {
             </button>
             <div className="absolute left-0 hidden bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block">
               {categories[categoryKey].map((subCategory) => (
-                <a
+                <button
                   key={subCategory.value}
-                  href={`#${subCategory.value}`}
                   className="block px-4 py-2 text-sm text-gray-700 hover:text-lastColor"
                 >
                   {subCategory.name}
-                </a>
+                </button>
               ))}
             </div>
           </div>
