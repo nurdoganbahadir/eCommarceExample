@@ -1,4 +1,5 @@
 import { getSingleProduct } from "@/actions/productsAPI";
+import ProductDetail from "@/components/ProductCard/ProductDetail";
 import React from "react";
 
 export async function generateMetadata({ params }) {
@@ -31,12 +32,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-async function page({ params }) {
+export default async function page({ params }) {
   const { productId } = await params;
 
   const product = await getSingleProduct(productId);
   console.log(product);
-  return <div>page</div>;
+  return <ProductDetail product={product} />;
 }
-
-export default page;
