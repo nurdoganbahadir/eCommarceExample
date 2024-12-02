@@ -39,8 +39,7 @@ const categories = {
   ],
 };
 
-function CategoriesBar() {
-  
+function CategoriesBar({ setCategory }) {
   return (
     <div className="w-full bg-slate-300">
       <div className="container max-w-7xl mx-auto flex justify-center">
@@ -53,6 +52,7 @@ function CategoriesBar() {
               {categories[categoryKey].map((subCategory) => (
                 <button
                   key={subCategory.value}
+                  onClick={() => setCategory(subCategory.value)}
                   className="block px-4 py-2 text-sm text-gray-700 hover:text-lastColor"
                 >
                   {subCategory.name}

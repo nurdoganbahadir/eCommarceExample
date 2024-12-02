@@ -5,31 +5,45 @@ import axios from "axios";
 import CardComponent from "../Card/Card";
 import CategoriesBar from "../Categories/CategoriesBar";
 
-const LIMIT = 12; // Her istekte çekilecek ürün sayısı
+const LIMIT = 12;
 
 function MainPage() {
-  const [products, setProducts] = useState([]); // Ürün listesi
-  const [skip, setSkip] = useState(0); // Atlanacak ürün sayısı (sayfalama)
-  const [loading, setLoading] = useState(false); // Yükleniyor durumu
-  const [hasMore, setHasMore] = useState(true); // Daha fazla ürün var mı?
+  const [products, setProducts] = useState([]);
+  const [skip, setSkip] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [category, setCategory] = useState("");
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `https://dummyjson.com/products?limit=${LIMIT}&skip=${skip}`
+        `https://dummyjson.com/products${
+          category ? `/category/${category}` : ""
+        }?limit=${LIMIT}&skip=${skip}`
       );
-      setProducts((prev) => [...prev, ...data.products]); // Yeni ürünleri ekle
-      if (data.products.length < LIMIT) setHasMore(false); // Çekilen ürün sayısı limitten azsa, daha fazla ürün yok
+      setProducts((prev) =>
+        skip === 0 ? data.products : [...prev, ...data.products]
+      );
+      if (data.products.length < LIMIT) setHasMore(false);
     } catch (error) {
       console.error("Error fetching products:", error);
     } finally {
       setLoading(false);
     }
   };
-  
+
   useEffect(() => {
+    setSkip(0); // Yeni kategori seçildiğinde skip'i sıfırla
+    setHasMore(true); // Yeni kategori için daha fazla ürün varsayımıyla başla
+    setProducts([]); // Önceki ürünleri temizle
     fetchProducts();
+  }, [category]);
+
+  useEffect(() => {
+    if (skip > 0) {
+      fetchProducts();
+    }
   }, [skip]);
 
   useEffect(() => {
@@ -40,7 +54,7 @@ function MainPage() {
         !loading &&
         hasMore
       ) {
-        setSkip((prev) => prev + LIMIT); // Skip'i artırarak sonraki ürünleri getir
+        setSkip((prev) => prev + LIMIT);
       }
     };
 
@@ -50,7 +64,7 @@ function MainPage() {
 
   return (
     <>
-      <CategoriesBar />
+      <CategoriesBar setCategory={setCategory} />
       <div className="container max-w-7xl m-auto mt-5 z-0">
         <div className="flex justify-center flex-wrap">
           {products?.map((product) => (
