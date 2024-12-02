@@ -43,9 +43,19 @@ function CategoriesBar({ setCategory }) {
   return (
     <div className="w-full bg-slate-300">
       <div className="container max-w-7xl mx-auto flex justify-center">
+        {/* "All" Butonu */}
+        <div className="relative group">
+          <button
+            onClick={() => setCategory("")} // Tüm ürünleri göstermek için boş kategori gönderilir
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-lastColor"
+          >
+            All
+          </button>
+        </div>
+        {/* Diğer Kategoriler */}
         {Object.keys(categories).map((categoryKey) => (
           <div key={categoryKey} className="relative group">
-            <button className="px-4 py-2 text-sm font-medium text-gray-700  hover:text-lastColor">
+            <button className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-lastColor">
               {categoryKey.charAt(0).toUpperCase() + categoryKey.slice(1)}
             </button>
             <div className="absolute left-0 hidden bg-white shadow-lg ring-1 ring-black ring-opacity-5 group-hover:block">
