@@ -26,6 +26,7 @@ function MainPage() {
         skip === 0 ? data.products : [...prev, ...data.products]
       );
       if (data.products.length < LIMIT) setHasMore(false);
+      console.log(data.products);
     } catch (error) {
       console.error("Error fetching products:", error);
     } finally {
@@ -77,6 +78,7 @@ function MainPage() {
               rating={product.rating}
               reviews={product.reviews}
               discountPercentage={product.discountPercentage}
+              id={product.id}
             />
           ))}
         </div>

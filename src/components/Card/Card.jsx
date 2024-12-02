@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import CardRating from "./CardRating";
+import { useRouter } from "next/navigation";
 
 const CardComponent = ({
   title,
@@ -10,9 +11,14 @@ const CardComponent = ({
   rating,
   reviews,
   discountPercentage,
+  id,
 }) => {
+  const router = useRouter();
   return (
-    <div className="w-56 rounded-lg overflow-hidden m-2 border hover:shadow-md hover:cursor-pointer">
+    <div
+      className="w-56 rounded-lg overflow-hidden m-2 border hover:shadow-md hover:cursor-pointer"
+      onClick={() => router.push(`${id}`)}
+    >
       <img className="w-full h-72 object-contain" src={thumbnail} alt={title} />
       <div className="p-2">
         <h3 className="font-semibold text-gray-800">{brand}</h3>
