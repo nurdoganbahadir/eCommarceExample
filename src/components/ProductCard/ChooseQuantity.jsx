@@ -15,7 +15,6 @@ export default function ChooseQuantity({ minimumOrderQuantity, stock }) {
   };
 
   return (
-    <form>
       <div className="flex justify-between items-center">
         <button
           type="button"
@@ -39,6 +38,7 @@ export default function ChooseQuantity({ minimumOrderQuantity, stock }) {
             />
           </svg>
         </button>
+
         <input
           type="number"
           value={quantity} // Input değeri state'e bağlı
@@ -68,6 +68,5 @@ export default function ChooseQuantity({ minimumOrderQuantity, stock }) {
           </svg>
         </button>
       </div>
-    </form>
   );
 }

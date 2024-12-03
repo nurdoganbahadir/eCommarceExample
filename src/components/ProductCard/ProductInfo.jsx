@@ -47,7 +47,10 @@ export default function ProductInfo({
           </p>
         </div>
         <div>
-          <ChooseQuantity minimumOrderQuantity={minimumOrderQuantity} stock={stock}/>
+          <ChooseQuantity
+            minimumOrderQuantity={minimumOrderQuantity}
+            stock={stock}
+          />
         </div>
       </div>
     </section>
