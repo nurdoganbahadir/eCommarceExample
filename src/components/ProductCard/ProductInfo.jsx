@@ -1,5 +1,6 @@
 import React from "react";
 import CardRating from "../Card/CardRating";
+import ChooseQuantity from "./ChooseQuantity";
 
 export default function ProductInfo({
   title,
@@ -8,6 +9,8 @@ export default function ProductInfo({
   reviews,
   price,
   discountPercentage,
+  stock,
+  minimumOrderQuantity,
 }) {
   const discountPrice = (price - (price * discountPercentage) / 100).toFixed(2);
 
@@ -30,6 +33,21 @@ export default function ProductInfo({
         <div className="flex gap-1 bg-green-300 rounded-md text-green-800 justify-center align-items-center ml-5 px-2 pt-1.5 text-sm">
           <p className="text-sm">Earning</p>
           <p>{(price - discountPrice).toFixed(2)} $</p>
+        </div>
+      </div>
+      <div className="text-sm flex justify-between border-2 rounded-md p-2 bg-gray-200 mt-4">
+        <div>
+          <p>
+            <span className="font-bold">Stock: </span>
+            {stock >= minimumOrderQuantity ? "In Stock" : "Not Stock"}
+          </p>
+          <p>
+            <span className="font-bold">Minimum Order: </span>
+            {minimumOrderQuantity}
+          </p>
+        </div>
+        <div>
+          <ChooseQuantity minimumOrderQuantity={minimumOrderQuantity} stock={stock}/>
         </div>
       </div>
     </section>
