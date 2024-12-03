@@ -37,5 +37,6 @@ export default async function page({ params }) {
 
   const product = await getSingleProduct(productId);
   console.log(product);
+  
   return <ProductDetail product={product} />;
 }

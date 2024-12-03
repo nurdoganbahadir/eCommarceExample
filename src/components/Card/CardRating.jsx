@@ -2,7 +2,7 @@ import React from "react";
 
 function CardRating({ rating }) {
   return (
-    <div className="flex items-center my-2">
+    <div className="flex items-center">
       <svg
         className={
           rating > 1
