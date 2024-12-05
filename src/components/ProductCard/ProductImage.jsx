@@ -22,7 +22,7 @@ const Carousel = ({ images }) => {
     <>
       {" "}
       <div className="relative w-full " data-carousel="slide">
-        <div className="relative h-56 overflow-hidden rounded-lg md:h-96 border-2 rounded-md">
+        <div className="relative h-56 overflow-hidden rounded-lg md:h-[600px] border-2 rounded-md">
           {images.map((image, index) => (
             <div
               key={index}

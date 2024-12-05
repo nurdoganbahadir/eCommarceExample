@@ -4,10 +4,10 @@ import ProductInfo from "./ProductInfo";
 export default function ProductDetail({ product }) {
   return (
     <div className="container flex m-auto my-10 max-w-6xl gap-6">
-      <div className="w-[50%]">
+      <div className="w-[40%]">
         <ProductImage images={product.images} />
       </div>
-      <div className="w-[50%]">
+      <div className="w-[60%]">
         <ProductInfo
           title={product.title}
           brand={product.brand}
