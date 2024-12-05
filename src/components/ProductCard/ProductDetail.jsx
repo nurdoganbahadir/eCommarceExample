@@ -3,7 +3,7 @@ import ProductInfo from "./ProductInfo";
 
 export default function ProductDetail({ product }) {
   return (
-    <div className="container flex m-auto max-w-6xl gap-6">
+    <div className="container flex m-auto my-10 max-w-6xl gap-6">
       <div className="w-[50%]">
         <ProductImage images={product.images} />
       </div>
