@@ -1,13 +1,19 @@
 "use client";
+
+import { useRouter } from "next/navigation";
 import { FaRegSun } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 
 export default function Navbar() {
+  const route = useRouter();
+
   return (
     <nav className="bg-primary">
       <div className="container max-w-6xl flex justify-between m-auto p-4">
-        <div className="hidden sm:block font-title">Shop</div>
+        <div onClick={() => route.push("/")} className="cursor-pointer">
+          <img src="./logo.png" alt="" className="w-20 h-10" />
+        </div>
         <form className="relative max-w-md">
           <input
             type="search"
