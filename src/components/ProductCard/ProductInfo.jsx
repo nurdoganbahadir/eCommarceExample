@@ -2,6 +2,7 @@
 import CardRating from "../Card/CardRating";
 import ChooseQuantity from "./ChooseQuantity";
 import CardButton from "./CardButton";
+import ProductShipping from "./ProductShipping";
 
 export default function ProductInfo({
   title,
@@ -12,6 +13,9 @@ export default function ProductInfo({
   discountPercentage,
   stock,
   minimumOrderQuantity,
+  warrantyInformation,
+  shippingInformation,
+  returnPolicy,
 }) {
   const discountPrice = (price - (price * discountPercentage) / 100).toFixed(2);
 
@@ -60,6 +64,13 @@ export default function ProductInfo({
       </div>
       <div className="w-full my-5 flex justify-between align-items-center gap-3">
         <CardButton minimumOrderQuantity={minimumOrderQuantity} stock={stock} />
+      </div>
+      <div>
+        <ProductShipping
+          warrantyInformation={warrantyInformation}
+          shippingInformation={shippingInformation}
+          returnPolicy={returnPolicy}
+        />
       </div>
     </section>
   );
