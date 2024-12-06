@@ -32,7 +32,15 @@ export default function ProductInfo({
       <div className="flex justify-start align-align-items-center my-4 gap-2 text-sm">
         <p className="bg-yellow-200 rounded-md px-2">{rating}</p>
         <CardRating rating={rating} />
-        <p className="text-lastColor font-bold">{reviews.length} Comments</p>
+        <p
+          className="text-lastColor font-bold cursor-pointer"
+          onClick={() => {
+            const commentsSection = document.getElementById("comments-section");
+            commentsSection?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          {reviews.length} Comments
+        </p>
       </div>
       <div className="flex align-items-center gap-3">
         <p className="font-bold text-3xl text-gray-700">{discountPrice} $</p>

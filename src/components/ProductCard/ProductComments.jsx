@@ -4,7 +4,7 @@ import CardRating from "../Card/CardRating";
 
 export default function ProductComments({ reviews }) {
   return (
-    <div className="p-4">
+    <div className="p-4" id="comments-section">
       <h1 className="font-bold text-2xl mb-4">Comments</h1>
       <div className="space-y-4">
         {reviews?.length > 0 ? (
