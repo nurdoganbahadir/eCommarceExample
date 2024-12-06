@@ -1,3 +1,4 @@
+"use client";
 import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";
 

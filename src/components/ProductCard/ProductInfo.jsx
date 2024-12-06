@@ -38,8 +38,12 @@ export default function ProductInfo({
       </div>
       <div className="text-sm flex justify-between border-2 rounded-md p-2 bg-gray-200 mt-4">
         <div>
-          <p>
-            <span className="font-bold">Stock: </span>
+          <p
+            className={`${
+              stock >= minimumOrderQuantity ? "text-green-400" : "text-red-600"
+            }`}
+          >
+            <span className="font-bold text-black">Stock: </span>
             {stock >= minimumOrderQuantity ? "In Stock" : "Not Stock"}
           </p>
           <p>

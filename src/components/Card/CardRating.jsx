@@ -1,5 +1,4 @@
-import React from "react";
-
+"use client";
 function CardRating({ rating }) {
   return (
     <div className="flex items-center">

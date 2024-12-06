@@ -1,3 +1,4 @@
+"use client";
 import { FaRegSun } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
