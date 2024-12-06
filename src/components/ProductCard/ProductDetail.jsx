@@ -24,6 +24,7 @@ export default function ProductDetail({ product }) {
             returnPolicy={product.returnPolicy}
             availabilityStatus={product.availabilityStatus}
             reviews={product.reviews}
+            dimensions={product.dimensions}
           />
         </div>
       </div>

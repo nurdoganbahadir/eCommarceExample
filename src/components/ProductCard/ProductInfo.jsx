@@ -3,6 +3,7 @@ import CardRating from "../Card/CardRating";
 import ChooseQuantity from "./ChooseQuantity";
 import CardButton from "./CardButton";
 import ProductShipping from "./ProductShipping";
+import ProductProperties from "./ProductProperties";
 
 export default function ProductInfo({
   title,
@@ -16,11 +17,12 @@ export default function ProductInfo({
   warrantyInformation,
   shippingInformation,
   returnPolicy,
+  dimensions,
 }) {
   const discountPrice = (price - (price * discountPercentage) / 100).toFixed(2);
 
   return (
-    <section className="my-12">
+    <section>
       <div>
         <h1 className="font-bold text-lastColor text-2xl">
           {brand}
@@ -71,6 +73,9 @@ export default function ProductInfo({
           shippingInformation={shippingInformation}
           returnPolicy={returnPolicy}
         />
+      </div>
+      <div className="my-5">
+        <ProductProperties dimensions={dimensions} brand={brand} />
       </div>
     </section>
   );
