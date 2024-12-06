@@ -4,7 +4,7 @@ function CardRating({ rating }) {
     <div className="flex items-center">
       <svg
         className={
-          rating > 1
+          rating >= 1
             ? "w-4 h-4 text-yellow-300 ms-0"
             : "w-4 h-4 text-gray-300 ms-0"
         }
@@ -17,7 +17,7 @@ function CardRating({ rating }) {
       </svg>
       <svg
         className={
-          rating > 2
+          rating >= 2
             ? "w-4 h-4 text-yellow-300 ms-0"
             : "w-4 h-4 text-gray-300 ms-0"
         }
@@ -30,7 +30,7 @@ function CardRating({ rating }) {
       </svg>
       <svg
         className={
-          rating > 3
+          rating >= 3
             ? "w-4 h-4 text-yellow-300 ms-0"
             : "w-4 h-4 text-gray-300 ms-0"
         }
@@ -43,7 +43,7 @@ function CardRating({ rating }) {
       </svg>
       <svg
         className={
-          rating > 4
+          rating >= 4
             ? "w-4 h-4 text-yellow-300 ms-0"
             : "w-4 h-4 text-gray-300 ms-0"
         }
