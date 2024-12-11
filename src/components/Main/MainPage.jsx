@@ -4,64 +4,21 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import CardComponent from "../Card/Card";
 import CategoriesBar from "../Categories/CategoriesBar";
-
-const LIMIT = 12;
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchAllProducts,
+  selectProducts,
+} from "../../lib/features/products/productsSlice";
 
 function MainPage() {
-  const [products, setProducts] = useState([]);
-  const [skip, setSkip] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
   const [category, setCategory] = useState("");
 
-  const fetchProducts = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get(
-        `https://dummyjson.com/products${
-          category ? `/category/${category}` : ""
-        }?limit=${LIMIT}&skip=${skip}`
-      );
-      setProducts((prev) =>
-        skip === 0 ? data.products : [...prev, ...data.products]
-      );
-      if (data.products.length < LIMIT) setHasMore(false);
-      console.log(data.products);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const dispatch = useDispatch();
+  const { products } = useSelector(selectProducts);
 
   useEffect(() => {
-    setSkip(0); // Yeni kategori seçildiğinde skip'i sıfırla
-    setHasMore(true); // Yeni kategori için daha fazla ürün varsayımıyla başla
-    setProducts([]); // Önceki ürünleri temizle
-    fetchProducts();
-  }, [category]);
-
-  useEffect(() => {
-    if (skip > 0) {
-      fetchProducts();
-    }
-  }, [skip]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop >=
-          document.documentElement.offsetHeight - 100 &&
-        !loading &&
-        hasMore
-      ) {
-        setSkip((prev) => prev + LIMIT);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading, hasMore]);
+    dispatch(fetchAllProducts());
+  }, []);
 
   return (
     <>
@@ -82,8 +39,6 @@ function MainPage() {
             />
           ))}
         </div>
-        {loading && <p>Loading...</p>}
-        {!hasMore && <p>No more products to load</p>}
       </div>
     </>
   );
