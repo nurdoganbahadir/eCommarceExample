@@ -1,4 +1,4 @@
-import { getSingleProduct } from "@/actions/productsAPI";
+// import { getSingleProduct } from "@/actions/productsAPI";
 import ProductDetail from "@/components/ProductCard/ProductDetail";
 import React from "react";
 

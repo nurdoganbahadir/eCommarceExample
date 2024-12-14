@@ -2,20 +2,20 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Bir hizmet tanımlayın, temel URL'yi ve beklenen uç noktaları belirleyin
-export const quotesApiSlice = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com/quotes" }),
-  reducerPath: "quotesApi",
+export const productsApiSlice = createApi({
+  baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com/products/" }),
+  reducerPath: "productsApi",
   // Önbelleğe alma ve geçersiz kılma için etiket türlerini tanımlayın
-  tagTypes: ["Quotes"],
+  tagTypes: ["Products"],
   endpoints: (build) => ({
     // Sorgular için bir uç nokta tanımlayın
-    getQuotes: build.query({
+    getProducts: build.query({
       query: (limit = 10) => `?limit=${limit}`,
       // `providesTags`, sorgu tarafından döndürülen verilerle ilişkilendirilen etiketi belirler
-      providesTags: (result, error, id) => [{ type: "Quotes", id }],
+      providesTags: (result, error, id) => [{ type: "Products", id }],
     }),
   }),
 });
 
 // RTK-Query tarafından otomatik oluşturulan hook'lar
-export const { useGetQuotesQuery } = quotesApiSlice;
+export const { useGetProductsQuery } = productsApiSlice;
