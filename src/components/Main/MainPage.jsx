@@ -7,10 +7,9 @@ import CategoriesBar from "../Categories/CategoriesBar";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function MainPage() {
-  const [skip, setSkip] = useState(10);
+  const [skip, setSkip] = useState(20);
   const [hasMore, setHasMore] = useState(true);
   const [products, setProducts] = useState([]);
-  console.log(products);
 
   const { data, isError, isLoading, isSuccess } = useGetProductsQuery(skip);
 
