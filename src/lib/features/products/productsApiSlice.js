@@ -19,8 +19,19 @@ export const productsApiSlice = createApi({
       query: (id) => `${id}`,
       providesTags: (result, error, id) => [{ type: "Products", id }],
     }),
+
+    getProductsByCategory: build.query({
+      query: (category) => `/category/${category}`,
+      providesTags: (result, error, category) => [
+        { type: "Products", category },
+      ],
+    }),
   }),
 });
 
 // RTK-Query tarafından otomatik oluşturulan hook'lar
-export const { useGetProductsQuery, useGetProductByIdQuery } = productsApiSlice;
+export const {
+  useGetProductsQuery,
+  useGetProductByIdQuery,
+  useGetProductsByCategoryQuery,
+} = productsApiSlice;
