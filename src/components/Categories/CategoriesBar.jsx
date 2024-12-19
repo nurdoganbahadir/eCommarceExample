@@ -1,9 +1,5 @@
 "use client";
 
-import { useGetProductsByCategoryQuery } from "@/lib/features/products/productsApiSlice";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-
 const categories = {
   men: [
     { name: "Men Shirts", value: "mens-shirts" },
@@ -44,12 +40,8 @@ const categories = {
   ],
 };
 
-function CategoriesBar() {
-  const [category, setCategory] = useState("");
-  const router = useRouter;
+function CategoriesBar({setCategory,category}) {
 
-  const { data, isLoading } = useGetProductsByCategoryQuery(category);
-  console.log(data);
 
   return (
     <div className="w-full bg-slate-300">
@@ -73,10 +65,9 @@ function CategoriesBar() {
               {categories[categoryKey].map((subCategory) => (
                 <button
                   key={subCategory.value}
-                  onClick={
-                    (() => setCategory(subCategory.value),
-                    router.push(`/category/${category}`))
-                  }
+                  onClick={() => {
+                    setCategory(subCategory.value);
+                  }}
                   className="block px-4 py-2 text-sm text-gray-700 hover:text-lastColor"
                 >
                   {subCategory.name}

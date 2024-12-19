@@ -10,7 +10,7 @@ export const productsApiSlice = createApi({
   endpoints: (build) => ({
     // Sorgular için bir uç nokta tanımlayın
     getProducts: build.query({
-      query: (limit = 20) => `?limit=${limit}`,
+      query: ({ limit = 10, skip = 0 }) => `?skip=${skip}&limit=${limit}`,
       // `providesTags`, sorgu tarafından döndürülen verilerle ilişkilendirilen etiketi belirler
       providesTags: (result, error, id) => [{ type: "Products", id }],
     }),
@@ -21,8 +21,9 @@ export const productsApiSlice = createApi({
     }),
 
     getProductsByCategory: build.query({
-      query: (category) => `/category/${category}`,
-      providesTags: (result, error, category) => [
+      query: ({ limit = 10, skip = 0, category }) =>
+        `/category/${category}?skip=${skip}&limit=${limit}`,
+      providesTags: (result, error,  category ) => [
         { type: "Products", category },
       ],
     }),
